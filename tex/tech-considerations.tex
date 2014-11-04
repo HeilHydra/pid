@@ -1,0 +1,58 @@
+\section{Technical Considerations}
+
+The technical considerations for this project can be divided into three sections: mobile application, server-side systems and hardware.
+
+\subsection{Mobile Application}
+
+One of the basic top-level requirements for this project is that the end product is centered around a mobile application. Therefore we have to ensure that all technology used is compatible with as many mobile devices as possible. If the app starts to have a dependency on niche features, such as NFC and 4G, there is a risk of excluding large quantities of users.
+
+\begin{itemize}
+  \item \textbf{Platform} - 
+    There are currently three major mobile platforms that support apps: Android, iOS and Windows Phone. Others such as Blackberry and Firefox OS either do not have a thriving application community or have a very small userbase. This project should ideally support all three of these major platforms, however each one requires applications to be written in different languages. There are two options here which will need to be considered:
+    \begin{itemize}
+      \item \emph{Native Applications} - A native application is one that is written to work directly with the device's operating system. For example on Android this would mean that the application is written in the programming language Java and that it directly uses the device's native libraries. The advantage this approach is mainly performance, but there are also certain features that are only available for native applications. The disadvantage is that the application has to be written separately for each platform you want to support.
+      \item \emph{Framework Applications} - To solve the difficulties of supporting multiple platforms, frameworks such as Apache Cordova and Adobe Phonegap have been created. These allow developers to write their applications once and have it automatically work across all major platforms. The downside here is that the application normally exists inside a \'wrapper\' which can have a negative impact on performance.
+    \end{itemize}
+  \item \textbf{Technology} - 
+    Features such as NFC are starting to become prevalent in many high-end smartphones, however they have not penetrated the lower-end of the market. The project needs to make sure that proper analysis is done on the prevalance of these features if they are to be used.
+\end{itemize}
+
+
+\subsection{Server-Side Systems}
+
+Many ideas and concepts in this project revolve around connected data and technology. There are likely to be many different services and systems required in order to complete the project. Designing and architecturing will be an important part of ensuring the project is a success.
+
+\begin{itemize}
+  \item \textbf{Architecture} - 
+    There are many different styles of software architecture. For this project we will be using the \emph{Microservices Architecture}. This is centered around separating out the application into individual services, each one with its own unique responsibility. This fits in nicely with the chosen Software Development Approach - \emph{Rapid Application Development} - since it allows for entire services to be completed in a single development cycle.
+
+    \textbf{Advantages}
+    \begin{itemize}
+      \item Easier debugging
+      \item Better fault isolation
+      \item Independent service development and deployment
+      \item Removes commitment to a specific technolog stack
+      \item Avoids monolithic applications and systems
+    \end{itemize}
+
+    \textbf{Disadvantages}
+    \begin{itemize}
+      \item Requires inter-service communication
+      \item Testing can be more complicated
+      \item Multi-service deployment can be hard to orchestrate
+      \item Multiple services means more memory usage
+    \end{itemize}
+  \item \textbf{Infrastructure}
+    A solid infrastructure is essential in order to adequately support the numerous software services and systems required for the project. There are several options available when it comes to selecting infrastructure components (servers, database management systems etc):
+    \begin{itemize}
+      \item \textbf{Cloud Computing} - 
+        Cloud-based systems such as \emph{Amazon Web Services} (AWS) and \emph{IBM SoftLayer} allow systems engineers to easily configure and deploy scalable services across the globe. They often support many different types of services (application servers, databases, data processors, queues etc) and can be configured quickly and easily through user interfaces, rather than having to manually set up each service. The downside to cloud-based infrastructure is usually the cost and also the added abstraction; the systems engineer is no longer in direct control of each moving part which can sometimes make fault finding a more laborious process.
+      \item \textbf{Dedicated Servers} - 
+        Dedicated servers are the more traditional approach to supporting software systems. They give the systems engineer absolute control over the entire infrastructure, however this goes hand-in-hand with the additional responsibility involved in configuring everything by hand. Another concern is redudancy. In a cloud-based system it is very easy to spin up copies of a service in the event of failture, however with a dedicated system you normally need to have servers on standby all the time. Compared to cloud services, dedicated servers can often work out cheaper.
+    \end{itemize}
+\end{itemize}
+
+
+\subsection{Hardware}
+
+There is the potential for some hardware to be developed and made available to enhance the mobile application. For prototyping it is likely that pre-existing devices such as the Raspberry Pi will be used. Since the main goal of the project revolves around the app, it is unlikely that much time or development will be put into the hardware itself and focus will instead be given to the software that it runs.
